@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperture Converter</title>
+
+    <style>
+        body {
+            padding: 50px 100px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #cont {
+            text-align: center;
+            background-color: burlywood;
+            padding: 50px;
+        }
+
+        .input {
+            display: inline-block;
+        }
+
+        .inp {
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            width: 100px;
+            text-align: center;
+        }
+
+        label {
+            color: rgb(41, 15, 19);
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Temperature Converter</h1>
+
+    <div id="cont">
+        <div class="input">
+            <label>Celsius</label><br>
+            <input type="number" placeholder="0" id="cel" class="inp">=
+        </div>
+        <div class="input">
+            <label>Fahrenheit</label><br>
+            <input type="number" placeholder="32" id="fah" class="inp">
+        </div>
+    </div>
+
+
+    <script>
+        var c = document.getElementById("cel");
+        var f = document.getElementById("fah");
+
+        c.addEventListener('input', cell);
+        f.addEventListener('input', fahh);
+
+        function cell() {
+            let c1 = this.value; // value of celsius will be store in c1 
+            let f1 = (c1 * 9 / 5) + 32;// celsius will be converted to fahrenheit & will be store in f1
+
+            if (!Number.isInteger(f1)) //if no. is not ineger then only if condition will work ,here Number is a class & isInteger is a method
+                f1 = f1.toFixed(4);
+
+            fah.value = f1; //fahrenheit value will be changed 
+        };
+        function fahh() {
+            let f1 = this.value;
+            let c1 = (f1 - 32) * 5 / 9;
+
+            if (!Number.isInteger(c1)) //if no. is not ineger then only if condition will work
+                c1 = c1.toFixed(4);
+
+            cel.value = c1;
+        };
+    </script>
+</body>
+
+</html>
